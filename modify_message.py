@@ -1,7 +1,7 @@
 from schemas import Order
 
 
-def transform_order(orders):
+def modify_order(orders):
     products_dict = {}
     total_price=0
     for order in orders:

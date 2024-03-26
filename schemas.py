@@ -14,3 +14,5 @@ class Order(BaseModel):
     total_price: float
     products: List[Product]
 
+
+

@@ -1,7 +1,7 @@
 import json
 import pika, sys, os
 import config as con
-from modify_information import transform_order
+from modify_message import modify_order
 
 
 connection = pika.BlockingConnection(pika.ConnectionParameters(host=con.host))
@@ -14,7 +14,7 @@ def main():
     def callback(ch, method, properties, body):
         unicode_string = body.decode('utf-8')
         json_data = json.loads(unicode_string)
-        refactor_data = transform_order(json_data)
+        refactor_data = modify_order(json_data)
         json_data = json.dumps(refactor_data)
         send_to_queue(json_data)
 
